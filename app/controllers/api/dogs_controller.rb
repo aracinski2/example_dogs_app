@@ -5,6 +5,10 @@ class Api::DogsController < ApplicationController
       age: params[:age],
       breed: params[:breed]
     )
-    render 'show.json.jb'
+    if current_user
+      render 'show.json.jb'
+    else
+      render json: []
+    end
   end
 end
