@@ -1,11 +1,14 @@
 class Api::DogsController < ApplicationController
+
   def create
-    @dog = Dog.new(
+    if current_user
+      @dog = Dog.new(
       name: params[:name],
       age: params[:age],
-      breed: params[:breed]
-    )
-    if current_user
+      breed: params[:breed],
+      user_id: current_user.id
+      )
+      @dog.save
       render 'show.json.jb'
     else
       render json: []

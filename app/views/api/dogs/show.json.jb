@@ -3,5 +3,6 @@
   name: @dog.name,
   age: @dog.age,
   breed: @dog.breed,
-  current_user: current_user
+  current_user: current_user,
+  
 }
